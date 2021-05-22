@@ -12,7 +12,7 @@ const auth = (props) => {
             </p>
             <p>
                 Password:
-                <input onChange={}
+                <input onChange={() => console.log('placeholder')} />
             </p>
         </div>
     )
