@@ -5,10 +5,10 @@ import React from 'react';
 
 
 class CardsContainer extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {};
-    }
+  constructor(props){
+    super(props);
+    this.state = {};
+  }
     
     
     render(){
