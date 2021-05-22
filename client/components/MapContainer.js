@@ -1,10 +1,6 @@
 import React from 'react';
-import { render } from 'sass';
-// import map container
-// import cards container
 
-
-Class App extends Component {
+class MapContainer extends React.Component {
     constructor(props){
         super(props);
         this.state = {};
@@ -12,10 +8,10 @@ Class App extends Component {
     render(
         return(
             <div>
-                
+                {/* map here */}
             </div>
         )
     )
 }
 
-React.DOM.render(<App />, document.getElementById('app'));
+export default MapContainer;
