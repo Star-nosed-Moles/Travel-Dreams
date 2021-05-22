@@ -3,21 +3,33 @@ const router = express.Router();
 const postController = require('../controllers/postController');
 
 // may need to add a userID filter
-router.get('/post',
+router.get('/',
   postController.getPosts,
   (req, res) => {
     // store post data in the res.locals obj
-    const { postData } = res.locals;
-    console.log('postRouter: get post data');
-    res.status(200).json({ posts: res.locals.posts });
+    const { posts } = res.locals;
+    console.log('postRouter: get posts');
+    return res.status(200).json({ posts });
   }
 );
 
-
 // create post
-
+router.post('/', 
+  postController.createPost,
+  (req, res) => {
+      return res.status(200).send('postRouter.js - router.post createPost')
+  })
 
 // get specific post (for the card page)
+router.get('/:postID',
+  postController.displayPost,
+  (req, res) => {
+      const { thisPost } = res.locals;
+      console.log('postRouter: display post');
+      return res.status(200).json({ thisPost });
+  }
+);
+
 
 module.exports = router;
 

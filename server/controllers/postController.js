@@ -1,10 +1,11 @@
+const mongoose = require('mongoose');
 const Post = require('../models/postModel');
 
 const postController = {};
 
 postController.getPosts = (req, res, next) => {
     const { userID } = req.body;
-
+    console.log('in getPosts controller!');
     Post
       .find({ userID: userID })
       .then((data) => {
@@ -14,9 +15,27 @@ postController.getPosts = (req, res, next) => {
       })
       .catch((err) => {
         console.log('Error in the postController.getPosts', err);
-        res.send(err);
+        return res.send(err);
       })
 
+}
+
+postController.displayPost = (req, res, next) => {
+    // const { thisPost } = req.body;
+    const postID = req.params.postID;
+    console.log('req.params', req.params);
+
+    console.log('in displayPost controller!');
+    Post.findOne({ postID: postID })
+        .then((post) => {
+            console.log('postController.displayPost successfully returned post')
+            res.locals.thisPost = post;
+            return next();
+        })
+        .catch((err) => {
+            console.log('Error in the postController.displayPost', err);
+            return res.send(err);
+        })
 }
 
 postController.createPost = (req, res, next) => {
@@ -41,5 +60,6 @@ postController.createPost = (req, res, next) => {
         return res.send(err)
       })
 }
+
 
 module.exports = postController;
