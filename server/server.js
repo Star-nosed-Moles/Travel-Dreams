@@ -2,9 +2,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+
+// require routers
+const postRouter = require('./routers/postRouter');
 const userRouter = require('./routers/userRouter');
+
 // express instance
 const app = express();
+
+const PORT = 3000;
+
 
 //Mongoose DB connection
 //useUnifiedTopology -> opts in to using the MongoDB driver's new connection management engine.
@@ -15,18 +22,18 @@ mongoose.connection.once('open', () =>{
   console.log('mongoose once / open connection is successful');
 })
 
-
-
-
-
+// PARSERS
+// provides a connect/express middleware that can be used to enable cors w/ various options 
+// app.use(cors());
 // handle parsing request body
 app.use(express.json());
 // Automatically parses urlencoded body content from incoming requests and place it in req.body
 app.use(express.urlencoded({ extended: true }));
 
 
-// route handlers
-app.use('/user', userRouter)
+// Route handlers
+app.use('/post', postRouter);
+app.use('/user', userRouter);
 
 
 // statically serve everything in the build folder on the route '/build'
@@ -35,9 +42,6 @@ app.use('/build', express.static(path.join(__dirname, '../build')));
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
-
-
-
 
 
 // ERROR HANDLERS
@@ -55,6 +59,6 @@ app.use((err, req, res, next) => {
 
 
 // express listen
-app.listen(3000, ()=> {
-  console.log('Server listening on port 3000'); 
+app.listen(PORT, () => {
+    console.log(`Server listening on port: ${PORT}`); 
 });
