@@ -1,14 +1,32 @@
 // import express
 const express = require('express');
+const mongoose = require('mongoose');
 const path = require('path');
-
+const userRouter = require('./routers/userRouter');
 // express instance
 const app = express();
+
+//Mongoose DB connection
+//useUnifiedTopology -> opts in to using the MongoDB driver's new connection management engine.
+//useNewUrlParser -> allows for Mongo to parse the new URL formats for URI connection
+mongoose.connect('mongodb+srv://soloProject:coinscoins@cluster0.ghlyl.mongodb.net/travel-dreams?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
+//Mongoose.connection.once tells mongoose to stay connected to the database once it has been connected.
+mongoose.connection.once('open', () =>{
+  console.log('mongoose once / open connection is successful');
+})
+
+
+
+
 
 // handle parsing request body
 app.use(express.json());
 // Automatically parses urlencoded body content from incoming requests and place it in req.body
 app.use(express.urlencoded({ extended: true }));
+
+
+// route handlers
+app.use('/user', userRouter)
 
 
 // statically serve everything in the build folder on the route '/build'
@@ -19,16 +37,24 @@ app.get('/', (req, res) => {
 });
 
 
-// route handlers
 
 
 
 // ERROR HANDLERS
-app.get('/', (req, res) => {
-  return res.sendFile(__dirname, '../index.html');
+// catch-all route handler for any requests to an unknown route
+app.use('*', (req, res) => {
+  console.log('404');
+  return res.sendStatus(404);
 });
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  return res.status(500).send('Internal Server Error!')
+});
+
 
 // express listen
 app.listen(3000, ()=> {
-    console.log('Server listening on port 3000'); 
+  console.log('Server listening on port 3000'); 
 });
