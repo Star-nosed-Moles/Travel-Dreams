@@ -1,8 +1,7 @@
 import React from 'react';
 import { render } from 'sass';
-// import map container
-// import cards container
-// import './stylesheets/styles.scss';
+import './stylesheets/styles.scss';
+
 
 class App extends React.Component {
     constructor(props){
