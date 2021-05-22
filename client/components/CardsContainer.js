@@ -10,17 +10,18 @@ class CardsContainer extends React.Component {
     this.state = {};
   }
     
-  render() {
-    //generate array of existing cards using props/state
-    const existingLocationCards = [];
     
-    return (
-      <div>
-      // CreateNewLocation card x1
-      // Array of existing cards xinfinity
-      </div>
-    );
-  };
-};
+    render(){
+        //generate array of existing cards using props/state
+        existingLocationCards = [];
+    
+        return(
+            <div>
+                 {/* CreateNewLocation card x1 */}
+                 {/* Array of existing cards xinfinity */}
+            </div>
+        )
+    }
+}
 
 export default CardsContainer;
