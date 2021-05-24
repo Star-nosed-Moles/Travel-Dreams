@@ -1,13 +1,22 @@
+import e from 'cors';
 import React from 'react';
+import plusSign from '../assets.plussign.jpeg';
 
 const NewCard = (props) => {
-  //onclick -> whole card redirects to 'create new post' page
-  // plus or other 'add' icon
-  //'create new dream' text
-    
+  //does this need to be bound and if so then should be a class component w/ constructor function?
+  handleClick(e) => {
+    //prevent page from refreshing
+    e.preventDefault();
+    //redirect to or render newCardView
+
+  }
+
   return (
     <div>
-      NewCard
+      <button onClick={handleClick}> 
+      <img src={"plusSign"} alt="create new" ></img>
+      <h3>Create New Dream</h3>
+      </button>   
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
-
-class Post extends React.Component {
+//what is this component? duplicate of existingCard or existingCardView?
+const Post = (props) => {
 
   render() {
     return (
