@@ -4,16 +4,45 @@ import Auth from '../components/Auth';
 class SignInView extends React.Component {
   constructor (props){
     super(props);
-
+    this.signInFunc = this.signInFunc.bind(this);
   }
+  
+
+  signInFunc = (userName, userPassword) => {
+    console.log('signing in');
+
+    fetch(`http://localhost:3000/user/?username=${userName}`)
+      .then(response => response.json())
+      .then(response => {
+        console.log('response received!', response);
+        const { user } = response;
+        //   "user": {
+        //     "_id": "60ab06828b9b1d05400a2e89",
+        //     "username": "Tom",
+        //     "password": "codesmith",
+        //     "__v": 0
+        // }
+        if (userPassword === user.password) {
+          // if password matches, setUser & changeView to Homepag
+          this.props.setUserFunc(user._id, user.username);
+          this.props.changeView('homepage');
+        } else {
+          // if password doesn't match, changeView to signup
+          this.props.changeView('signup');
+        }
+      }
+      )
+      .catch(err => console.log(err));
+  }
+
   render() {
     console.log('props', this.props);
     
     return (
       <div>
         {/*insert logo/image here  */}
-        <h1>Dreamcatcher || Sign In </h1>
-        <Auth type="Sign In" func={() => console.log('hi')}
+        <h1>Dreamcatcher</h1>
+        <Auth type="Sign In" authFunc={this.signInFunc}
         //if Auth type = signIn
           //if name exists in db 
            //if name/pw set match name/pw set from database => homepage view

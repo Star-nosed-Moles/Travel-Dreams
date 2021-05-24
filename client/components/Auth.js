@@ -17,16 +17,12 @@ class Auth extends Component {
       //prevents app from refreshing every time you click button for form tags
       e.preventDefault();
         //invoke fcn passed in by props
-      console.log('handling click in Auth');
-        // //if Auth type = signUp
-        //   if (this.props.type = signUp){
-        //     //add name/pw set to db
-        //   } 
+      this.props.authFunc(this.state.username, this.state.password);
     }
     
     setUsername(input){
         this.setState({username:input})
-    }
+  }
 
     setUserPassword(input){
         this.setState({password:input})
@@ -38,13 +34,13 @@ class Auth extends Component {
           <p>
               Username:
               <input 
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => this.setUsername(e.target.value)}
               />
           </p>
           <p>
               Password:
               <input 
-                onChange={(e) => setUserPassword(e.target.value)}
+                onChange={(e) => this.setUserPassword(e.target.value)}
               />
           </p>
           <button

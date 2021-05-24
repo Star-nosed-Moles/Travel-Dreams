@@ -12,6 +12,7 @@ userController.create = (req, res, next) => {
     .create({ username : bodyData.username, password: bodyData.password })
     .then((data) => {
       console.log('userController.create successfully returned after inserting a doc into the collection.');
+      res.locals.user = data;
       return next()
     })
     .catch((err) => {
@@ -21,20 +22,20 @@ userController.create = (req, res, next) => {
 }
 
 userController.get = (req, res, next) => {
-  const user = req.body.username;
+  const { username } = req.query;
   // .findOne({ username: user })
   User
-    .find({ username: user })
+    .find({ username })
     .then((data) => {
+      console.log(data);
       if(!data.length){
-        console.log(`username: ${user} was not found in the database.`)
-        return res.status(200).send(`username: ${user} was not found in the database.`)
+        console.log(`username: ${username} was not found in the database.`)
+        return res.status(200).send({ user: data });
       }
       if(data.length){
-        console.log(`username: ${user} was successfully found.`)
-        res.locals.user = data; // may have to modify to get specific user data
+        console.log(`username: ${username} was successfully found.`)
+        res.locals.user = data[0]; // may have to modify to get specific user data
         return next();
-        
       }
     })
     .catch(err => {
