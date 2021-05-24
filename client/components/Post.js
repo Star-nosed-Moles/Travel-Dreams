@@ -1,19 +1,19 @@
 import React from 'react';
 
 class Post extends React.Component {
+  // should be getting props from PostView Component
 
   render() {
+    if (!this.props.post) return null;
+    
+    const { location, description } = this.props.post;
     return (
       <div>
-        <p>
-          Post Location
+        <p className="location-text" >
+          {location}
         </p>
-        <p>
-          Post Title
-        </p>
-        <div>
-          Post Text
-          Make me a big ol' Div!
+        <div className="post-text" >
+          <p>{ this.props.post.description }</p>
         </div>
       </div>
     );

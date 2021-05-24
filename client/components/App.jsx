@@ -1,6 +1,6 @@
 import React from 'react';
 // import { render } from 'sass';
-// import './stylesheets/styles.scss';
+import '../stylesheets/style.scss';
 
 import SignInView from '../views/SignInView';
 import SignUpView from '../views/SignUpView';
@@ -11,13 +11,14 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      current: 'signup'
+      current: 'post',
+      currPostID: '60ab08d230ec251718bcd75e',
     };
-    this.object = {
+    this.views = {
       'signup': <SignUpView />,
       'signin': <SignInView />,
       'homePage': <HomePageView />,
-      'post': <PostView />
+      'post': <PostView currPost={this.state.currPostID} />
     }
   }
 
@@ -25,7 +26,7 @@ class App extends React.Component {
     return (
       <div>
         App
-        {this.object[this.state.current]}
+        {this.views[this.state.current]}
       </div>
     )
   }
