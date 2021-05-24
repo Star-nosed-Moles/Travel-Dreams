@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const cors = require('cors');
 
 // require routers
 const postRouter = require('./routers/postRouter');
@@ -24,7 +25,7 @@ mongoose.connection.once('open', () =>{
 
 // PARSERS
 // provides a connect/express middleware that can be used to enable cors w/ various options 
-// app.use(cors());
+app.use(cors());
 // handle parsing request body
 app.use(express.json());
 // Automatically parses urlencoded body content from incoming requests and place it in req.body

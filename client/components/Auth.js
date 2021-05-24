@@ -1,37 +1,46 @@
-import React {Component} from 'react';
+import React, { Component } from 'react';
 
 
 class Auth extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            username:'',
-            password:''
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: ''
+    };
+  };
 
-    handleClick = async (e) => {
-        //prevents app from refreshing every time you click button
-        e.preventDefault();
-        
-    }
-    render(){
-    return (
-        <div className="text-entry" >
-          <p>
-              Username:
-              <input 
-                onChange={(e) => setUsername(e.target.value)}
-              />
-          </p>
+  handleClick(e) {
+    //prevents app from refreshing every time you click button
+    e.preventDefault();
+    console.log('handling click');
+  };
+
+  setUsername(value) {
+    this.setState({ username: value });
+  };
+
+  setUserPassword(value) {
+    this.setState({ password: value });
+  };
+
+  render() {
+  return (
+    <div className="text-entry" >
+      <p>
+        Username:
+        <input 
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </p>
           <p>
               Password:
               <input 
-                onChange={(e) => setUserpassword(e.target.value)}
+                onChange={(e) => setUserPassword(e.target.value)}
               />
           </p>
           <button type="button"
-            onClick={handleClick}
+            onClick={this.handleClick}
             >
               Submit
           </button>
@@ -42,7 +51,7 @@ class Auth extends Component {
 
 
 
-export default auth;
+export default Auth;
 
 /* 
 username event object
