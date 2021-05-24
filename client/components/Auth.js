@@ -2,44 +2,53 @@ import React, { Component } from 'react';
 
 
 class Auth extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
-    };
-  };
+    constructor(props){
+        super(props);
+        this.state = {
+            username:'',
+            password:''
+        }
+        this.handleClick = this.handleClick.bind(this);
+        this.setUsername = this.setUsername.bind(this);
+        this.setUserPassword = this.setUserPassword.bind(this);
+    }
 
-  handleClick(e) {
-    //prevents app from refreshing every time you click button
-    e.preventDefault();
-    console.log('handling click');
-  };
+    handleClick = async (e) => {
+        //prevents app from refreshing every time you click button
+        e.preventDefault();
+        //invoke fcn passed in by props
+            
+        //if Auth type = signUp
+          if (this.props.type = signUp){
+            //add name/pw set to db
+          }
+          
+    }
+    
+    setUsername(input){
+        this.setState({username:input})
+    }
 
-  setUsername(value) {
-    this.setState({ username: value });
-  };
+    setUserPassword(input){
+        this.setState({password:input})
+    }
 
-  setUserPassword(value) {
-    this.setState({ password: value });
-  };
-
-  render() {
-  return (
-    <div className="text-entry" >
-      <p>
-        Username:
-        <input 
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </p>
+    render(){
+    return (
+        <div>
+          <p>
+              Username:
+              <input 
+                onChange={(e) => setUsername(e.target.value)}
+              />
+          </p>
           <p>
               Password:
               <input 
                 onChange={(e) => setUserPassword(e.target.value)}
               />
           </p>
-          <button type="button"
+          <button
             onClick={this.handleClick}
             >
               Submit
