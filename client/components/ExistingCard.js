@@ -5,7 +5,7 @@ import React from 'react';
 const ExistingCard = (props) => {
     //onclick -> whole card redirects to page for that location
 
-  handleClick(e) => {
+  const handleClick = (e) => {
     //prevent page from refreshing
     e.preventDefault();
     //redirect to or render the view/page for the location with this key
@@ -13,6 +13,7 @@ const ExistingCard = (props) => {
   }
 
   return (
+    // if not rendering try onClick in div instead of button
     <div>
       <button onClick={handleClick}> 
       {/* image would ideally be the image uploaded when card was created {this.props.img} */}

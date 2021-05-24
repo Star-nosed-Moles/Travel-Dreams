@@ -17,7 +17,7 @@ router.get('/',
 router.post('/', 
   postController.createPost,
   (req, res) => {
-      return res.status(200).send('postRouter.js - router.post createPost')
+      return res.status(200).send({ post: res.locals.newPost })
   })
 
 // get specific post (for the card page)
@@ -25,11 +25,10 @@ router.get('/:postID',
   postController.displayPost,
   (req, res) => {
       const { thisPost } = res.locals;
-      console.log('postRouter: display post');
+      console.log('postRouter: display post', thisPost);
       return res.status(200).json({ thisPost });
   }
 );
-
 
 module.exports = router;
 

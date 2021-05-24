@@ -1,4 +1,4 @@
-import React {Component} from 'react';
+import React, { Component } from 'react';
 
 
 class Auth extends Component {
@@ -16,13 +16,7 @@ class Auth extends Component {
     handleClick = async (e) => {
         //prevents app from refreshing every time you click button
         e.preventDefault();
-        //if Auth type = signIn
-        if (this.props.type = signIn){
-           //if name exists in db 
-            //if name/pw set match name/pw set from database => homepage view
-            //if name/pw set DON'T match name/pw set from database =>  'wrong pw' msg or alert
-          //if name DOESN'T exist in db => 'no such account' msg or alert 
-        }
+        //invoke fcn passed in by props
             
         //if Auth type = signUp
           if (this.props.type = signUp){
@@ -32,11 +26,11 @@ class Auth extends Component {
     }
     
     setUsername(input){
-        setState({username:input})
+        this.setState({username:input})
     }
 
     setUserPassword(input){
-        setState({password:input})
+        this.setState({password:input})
     }
 
     render(){
@@ -51,11 +45,11 @@ class Auth extends Component {
           <p>
               Password:
               <input 
-                onChange={(e) => setUserpassword(e.target.value)}
+                onChange={(e) => setUserPassword(e.target.value)}
               />
           </p>
           <button
-            onClick={handleClick}
+            onClick={this.handleClick}
             >
               Submit
           </button>
@@ -66,7 +60,7 @@ class Auth extends Component {
 
 
 
-export default auth;
+export default Auth;
 
 /* 
 username event object
