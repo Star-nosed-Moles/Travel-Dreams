@@ -9,6 +9,10 @@ router.get('/', userController.get, (req, res) => {
   return res.status(200).send({ user: res.locals.user });
 });
 
+router.get('/all', userController.getAll, (req, res) => {
+  return res.status(200).send({ users: res.locals.users });
+})
+
 router.post('/', userController.create, (req, res) => {
   return res.status(200).send('userRouter.js - router.post post');
 });

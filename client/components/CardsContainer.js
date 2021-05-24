@@ -5,22 +5,23 @@ import React from 'react';
 
 
 class CardsContainer extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {};
-    }
+  constructor(props){
+    super(props);
+    this.state = {};
+  }
     
-    //generate array of existing cards using props/state
-    existingLocationCards = [];
     
-    render(
+    render(){
+        //generate array of existing cards using props/state
+        existingLocationCards = [];
+    
         return(
             <div>
-                // CreateNewLocation card x1
-                // Array of existing cards xinfinity
+                 {/* CreateNewLocation card x1 */}
+                 {/* Array of existing cards xinfinity */}
             </div>
         )
-    )
+    }
 }
 
 export default CardsContainer;
