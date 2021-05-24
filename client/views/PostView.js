@@ -36,7 +36,7 @@ class PostView extends React.Component {
   render() {
     return (
       <div>
-        <MapContainer />
+        {/* <MapContainer /> */}
         <Post post={this.state.post} />
       </div>
     );

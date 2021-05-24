@@ -13,52 +13,45 @@ class Auth extends Component {
         this.setUserPassword = this.setUserPassword.bind(this);
     }
 
-    handleClick = async (e) => {
-        //prevents app from refreshing every time you click button
-        e.preventDefault();
+    handleClick = (e) => {
+      //prevents app from refreshing every time you click button for form tags
+      e.preventDefault();
         //invoke fcn passed in by props
-            
-        //if Auth type = signUp
-          if (this.props.type = signUp){
-            //add name/pw set to db
-          }
-          
+      this.props.authFunc(this.state.username, this.state.password);
     }
     
     setUsername(input){
         this.setState({username:input})
-    }
+  }
 
     setUserPassword(input){
         this.setState({password:input})
     }
 
-    render(){
+  render(){
     return (
         <div>
           <p>
               Username:
               <input 
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => this.setUsername(e.target.value)}
               />
           </p>
           <p>
               Password:
               <input 
-                onChange={(e) => setUserPassword(e.target.value)}
+                onChange={(e) => this.setUserPassword(e.target.value)}
               />
           </p>
           <button
             onClick={this.handleClick}
             >
-              Submit
+              {this.props.type}
           </button>
         </div>
-    )};
+    )
+  };
 }
-
-
-
 
 export default Auth;
 

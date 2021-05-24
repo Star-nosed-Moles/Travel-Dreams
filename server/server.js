@@ -37,7 +37,7 @@ app.use('/post', postRouter);
 app.use('/user', userRouter);
 
 
-// statically serve everything in the build folder on the route '/build'
+// ng in the build folder on the route '/build'
 app.use('/build', express.static(path.join(__dirname, '../build')));
 // serve index.html on the route '/'
 app.get('/', (req, res) => {

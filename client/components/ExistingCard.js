@@ -1,6 +1,6 @@
 import React from 'react';
 //import images/assets folder?
-
+import SMpier from '../assets/SMpier.jpeg';
 
 const ExistingCard = (props) => {
     //onclick -> whole card redirects to page for that location
@@ -17,7 +17,7 @@ const ExistingCard = (props) => {
     <div>
       <button onClick={handleClick}> 
       {/* image would ideally be the image uploaded when card was created {this.props.img} */}
-      <img src="../assets/SMpier" ></img>
+        <img src={SMpier} ></img>
       <h3>{this.props.loc}</h3>
       </button>   
     </div>
