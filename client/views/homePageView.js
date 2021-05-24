@@ -1,6 +1,6 @@
 import React from 'react';
-import MapContainer from './MapContainer.js'
-import CardsContainer from './CardsContainer.js'
+import MapContainer from '../components/MapContainer.js'
+import CardsContainer from '../components/CardsContainer.js'
 
 class HomePageView extends React.Component {
 

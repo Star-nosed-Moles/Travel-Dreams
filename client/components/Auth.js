@@ -13,16 +13,15 @@ class Auth extends Component {
         this.setUserPassword = this.setUserPassword.bind(this);
     }
 
-    handleClick = async (e) => {
-        //prevents app from refreshing every time you click button
-        e.preventDefault();
+    handleClick = (e) => {
+      //prevents app from refreshing every time you click button for form tags
+      e.preventDefault();
         //invoke fcn passed in by props
-            
-        //if Auth type = signUp
-          if (this.props.type = signUp){
-            //add name/pw set to db
-          }
-          
+      console.log('handling click in Auth');
+        // //if Auth type = signUp
+        //   if (this.props.type = signUp){
+        //     //add name/pw set to db
+        //   } 
     }
     
     setUsername(input){
@@ -33,7 +32,7 @@ class Auth extends Component {
         this.setState({password:input})
     }
 
-    render(){
+  render(){
     return (
         <div>
           <p>
@@ -51,14 +50,12 @@ class Auth extends Component {
           <button
             onClick={this.handleClick}
             >
-              Submit
+              {this.props.type}
           </button>
         </div>
-    )};
+    )
+  };
 }
-
-
-
 
 export default Auth;
 
