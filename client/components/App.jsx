@@ -2,10 +2,11 @@ import React from 'react';
 // import { render } from 'sass';
 import '../stylesheets/style.scss';
 
-import SignInView from '../views/SignInView';
-import SignUpView from '../views/SignUpView';
-import HomePageView from '../views/HomePageView';
-import PostView from '../views/PostView';
+import SignInView from '../views/SignInView.js';
+import SignUpView from '../views/SignUpView.js';
+import HomePageView from '../views/HomePageView.js';
+import PostView from '../views/PostView.js';
+import MapContainer from './MapContainer.js';
 
 class App extends React.Component {
   constructor(props){
@@ -25,6 +26,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <div>
+        MAP AREA:
+        <MapContainer />
+        </div>
         App
         {this.views[this.state.current]}
       </div>

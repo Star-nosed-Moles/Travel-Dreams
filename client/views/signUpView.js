@@ -10,7 +10,7 @@ class SignUpView extends React.Component {
       <div>
         {/*insert logo/image here  */}
         <h1>Dreamcatcher</h1>
-        <Auth type="signUp" func={}
+        {/* <Auth type="signUp" func={} 
         //if Auth type = signIn
           //if name exists in db 
            //if name/pw set match name/pw set from database => homepage view
