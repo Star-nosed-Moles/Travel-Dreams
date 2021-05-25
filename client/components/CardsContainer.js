@@ -24,7 +24,7 @@ class CardsContainer extends React.Component {
         let existingCards = [];
         //loop through existing locations in the props/state
           //generate an existing card for each one
-        let locations = this.state.locations; //how to get the input from the createNew view inputs into this props/state?
+        let locations = this.state.locations; //how to get the input from the createNew view inputs into this props/state?213
         
         locations.map((loc, i) => {
           existingCards.push(<ExistingCard key={i} loc={locations[i][location]} style={cardStyle} />);

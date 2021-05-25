@@ -1,24 +1,30 @@
 body {
-    // background-color: ;
-    background-image: linear-gradient(45deg, #EE617D 8.33%, #ffffff 8.33%, #ffffff 16.67%, #ffffff 16.67%, #ffffff 25%, #3d6f8e 25%, #3d6f8e 33.33%, #fff 33.33%, #fff 41.67%, #fff 41.67%, #fff 50%, #EE617D 50%, #EE617D 58.33%, #ffffff 58.33%, #ffffff 66.67%, #ffffff 66.67%, #ffffff 75%, #3d6f8e 75%, #3d6f8e 83.33%, #fff 83.33%, #fff 91.67%, #fff 91.67%, #fff 100%);
-    background-size: 169.71px 169.71px;
-    margin: auto;
-    text-align: center;
+  background-color: #2a6f97;
+  // background-image: linear-gradient(45deg, #EE617D 8.33%, #ffffff 8.33%, #ffffff 16.67%, #ffffff 16.67%, #ffffff 25%, #3d6f8e 25%, #3d6f8e 33.33%, #fff 33.33%, #fff 41.67%, #fff 41.67%, #fff 50%, #EE617D 50%, #EE617D 58.33%, #ffffff 58.33%, #ffffff 66.67%, #ffffff 66.67%, #ffffff 75%, #3d6f8e 75%, #3d6f8e 83.33%, #fff 83.33%, #fff 91.67%, #fff 91.67%, #fff 100%);
+  // background-size: 169.71px 169.71px;
+  margin: auto;
+  text-align: center;
 }
 
 h1 {
-    font-family: helvetica;
-    font-size: 50px;
-    color: black;
+  font-family: helvetica;
+  font-size: 40px;
+  color: black;
 }
 
 div {
-  background-color: white;
-  border: 2px solid black;
+  // background-color: white;
+  // border: 2px solid black;
   border-radius: 2px;
   padding: 5px;
   margin: 5px;
 }
+
+// #map {
+// background-color: none;
+// width: '100%';
+// height: '100vh';
+// }
 
 a {
   text-decoration: underline;
@@ -31,3 +37,4 @@ button:hover {
 a:hover {
   color: blue;
 }
+
