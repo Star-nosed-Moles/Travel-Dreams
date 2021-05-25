@@ -7,6 +7,7 @@ import SignUpView from '../views/signUpView';
 import HomePageView from '../views/HomePageView';
 import PostView from '../views/PostView';
 import NewCardView from '../views/newCardView';
+import MapContainer from './MapContainer';
 
 class App extends React.Component {
   constructor(props){
