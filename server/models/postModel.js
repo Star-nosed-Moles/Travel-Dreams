@@ -11,7 +11,9 @@ const postSchema = new Schema({
   description: { type: String },
   date_created: { type: Date, require: true },
   visited: { type: Boolean },
-  userID: { type: String, required: true }
+  userID: { type: String, required: true },
+  lat: { type: String },
+  lng: { type: String }
 });
 
 module.exports = mongoose.model('Post', postSchema);

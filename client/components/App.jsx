@@ -36,7 +36,6 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          MAP AREA:
           <MapContainer />
         </div>
         App

@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 const Post = require('../models/postModel');
+const nodegeocoder = require('node-geocoder');
+const options = {
+    provider: 'google',
+    api_key: 'AIzaSyARZ6DOsIps1oAQDL4QfZj7dENtlJAsokk'
+  };
+const geocoder = nodegeocoder(options);
+
+
 
 const postController = {};
 
@@ -42,20 +50,41 @@ postController.displayPost = (req, res, next) => {
 }
 
 postController.createPost = (req, res, next) => {
+  console.log(req.body.location)
+  geocoder.geocode(req.body.location)
+    .then((response) => {
+        console.log('response', response);
+        const { latitude, longitude } = response[0];
+      
+        res.locals.lat = latitude;
+        res.locals.lng = longitude
+    })
+    .catch((err) => next('geocode fecth error',err))
+
+  console.log('deconstructing req.body')
     const {
       userID,
       username,
       location,
       description,
       date_created,
-      visited
+      visited,
+      
+      
     } = req.body;
+    
+   
 
     Post
-      .create({ userID, username, location, description, date_created, visited })
+      .create({ userID, username, location, description, date_created, visited, lat, lng })
       .then((data) => {
+        
         console.log('Post Created!');
+        
+
         res.locals.newPost = data;
+        res.locals.newPost.lng = res.locals.lng;
+        res.locals.newPost.lat = res.locals.lat;
         return next();
       })
       .catch(err => {
