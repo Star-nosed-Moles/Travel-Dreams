@@ -24,6 +24,21 @@ a {
   text-decoration: underline;
 }
 
+.text-entry-container {
+  min-height: 400px;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  height: 100%;
+  margin: -10px;
+  min-height: 400px
+}
+
 button:hover {
   color: blue;
 }

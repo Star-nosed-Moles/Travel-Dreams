@@ -43,7 +43,7 @@ class SignUpView extends React.Component {
     return (
       <div>
         {/*insert logo/image here  */}
-        <h1>Dreamcatcher</h1>
+        <h1>Travel Dreamcatcher</h1>
         <Auth type="Sign Up" authFunc={this.signUpFunc} />
         <h3>Been here before?</h3>
         {/* check if link directs properly, check path */}
