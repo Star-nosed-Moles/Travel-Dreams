@@ -10,10 +10,10 @@ import NewCardView from '../views/newCardView';
 import MapContainer from './MapContainer';
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      current: 'newcard',
+      current: 'post',
       currPostID: '60ab08d230ec251718bcd75e',
       userID:'',
       userName:''

@@ -55,7 +55,7 @@ class SignInView extends React.Component {
         put the func you want called when you click as an anon func so it's not invoked immediately
         */}
         <a onClick={() => this.props.changeView('signup')}> Sign Up  </a>
-      </div>
+this.props.post.``      </div>
     );
   };
 };

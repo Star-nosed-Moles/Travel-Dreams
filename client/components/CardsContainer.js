@@ -8,7 +8,6 @@ class CardsContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-
       posts: [],
     };
   }
@@ -16,26 +15,17 @@ class CardsContainer extends React.Component {
   //fetch request to get all existing posts for this user
   //**how do you find the path for the fetch request? this looks different than what we had before
   getUserPosts = (userName) => {
-    fetch(`http://localhost:3000/post/?username=${userName}`, {
-    body: JSON.stringify([{
-      "_id": "",
-      "username": "",
-      "location": "",
-      "description": "",
-      "date_created": "",
-      "visited": true,
-      "__v": 0
-  },])
-    })
+    console.log('getting user posts');
+
+    fetch(`http://localhost:3000/post/?username=${userName}`)
     .then(response => response.json())
     .then(response => {
-
+      console.log('getUserPosts response', response);
+      this.setState({ posts: response })
     })
     .catch(err => console.log(err));
-}
+  }
 
-  //   
-  // })
     
   render() {
     // if posts haven't been fetched yet, render return null
@@ -46,23 +36,24 @@ class CardsContainer extends React.Component {
       width: '100px'
     }  
 
-        //generate array of existing cards using props/state
-        let existingCards = [];
-        //loop through existing locations in the props/state
-          //generate an existing card for each one
-        let allPosts = this.state.posts; //how to get the input from the createNew view inputs into this props/state?
-        let locations = this.state.locations; //how to get the input from the createNew view inputs into this props/state?213
-        
-        allPosts.map((loc, i) => {
-          existingCards.push(<ExistingCard key={i} loc={allPosts[i][location]} style={cardStyle} />);
-        })
-        return(
-            <div className="cardsContainer">
-              <NewCard style={cardStyle} />
-              {existingCards}
-            </div>
-        )
-    }
+    //generate array of existing cards using props/state
+    let existingCards = [];
+    //loop through existing locations in the props/state
+      //generate an existing card for each one
+    let allPosts = this.state.posts; //how to get the input from the createNew view inputs into this props/state?
+    let locations = this.state.locations; //how to get the input from the createNew view inputs into this props/state?213
+    
+    allPosts.map((loc, i) => {
+      existingCards.push(<ExistingCard key={i} loc={allPosts[i][location]} style={cardStyle} />);
+    })
+
+    return(
+        <div className="cardsContainer">
+          <NewCard style={cardStyle} />
+          {existingCards}
+        </div>
+    )
+  }
 }
 
 export default CardsContainer;

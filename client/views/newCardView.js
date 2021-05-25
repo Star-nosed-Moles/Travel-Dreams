@@ -1,5 +1,17 @@
 import React from 'react';
 
+const textAreaStyle = {
+  height: '100%',
+  width: '100%',
+  border: 'none'
+}
+
+const textAreaContainerStyle = {
+  minHeight: '500px'
+}
+
+const lorem = "Sed ut perspiciatis unde omnis"
+
 class NewCard extends React.Component {
   constructor(props) {
     super(props);

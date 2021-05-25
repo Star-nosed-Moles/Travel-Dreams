@@ -4,6 +4,7 @@ body {
   // background-size: 169.71px 169.71px;
   margin: auto;
   text-align: center;
+    font-family: helvetica;
 }
 
 h1 {
@@ -32,6 +33,10 @@ a {
 
 .text-entry-container {
   min-height: 400px;
+}
+
+.cardsContainer {
+  height: 500px;
 }
 
 textarea {
