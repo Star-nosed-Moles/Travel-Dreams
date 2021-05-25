@@ -12,7 +12,7 @@ class HomePageView extends React.Component {
     return (
       <div>
         <MapContainer />
-        <h2>My Dreams</h2>
+        {/* <h2>My Dreams</h2> */}
         <CardsContainer />
       </div>
     );

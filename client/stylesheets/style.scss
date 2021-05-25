@@ -4,6 +4,7 @@ body {
   // background-size: 169.71px 169.71px;
   margin: auto;
   text-align: center;
+    font-family: helvetica;
 }
 
 h1 {
@@ -28,6 +29,25 @@ div {
 
 a {
   text-decoration: underline;
+}
+
+.text-entry-container {
+  min-height: 400px;
+}
+
+.cardsContainer {
+  height: 500px;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  height: 100%;
+  margin: -10px;
+  min-height: 400px
 }
 
 button:hover {

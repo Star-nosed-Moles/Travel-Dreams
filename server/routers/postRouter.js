@@ -3,8 +3,12 @@ const router = express.Router();
 const postController = require('../controllers/postController');
 
 // may need to add a userID filter
+// get all posts from user
+// pass in username on body (can refactor to userID)
+// app.use('/post', postRouter); in server.js
+
 router.get('/',
-  postController.getPosts,
+  postController.getUserPosts,
   (req, res) => {
     // store post data in the res.locals obj
     const { posts } = res.locals;

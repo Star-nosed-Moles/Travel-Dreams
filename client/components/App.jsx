@@ -6,13 +6,14 @@ import SignInView from '../views/signInView';
 import SignUpView from '../views/signUpView';
 import HomePageView from '../views/HomePageView';
 import PostView from '../views/PostView';
+import NewCardView from '../views/newCardView';
 import MapContainer from './MapContainer';
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      current: 'signin',
+      current: 'post',
       currPostID: '60ab08d230ec251718bcd75e',
       userID:'',
       userName:''
@@ -26,8 +27,9 @@ class App extends React.Component {
     this.views = {
       'signup': <SignUpView changeView={this.changeView} setUserFunc={this.setUser} view="signup"/>,
       'signin': <SignInView changeView={this.changeView} setUserFunc={this.setUser} view="signin"/>,
-      'homepage': <HomePageView view="homepage"/>,
-      'post': <PostView currPost={this.state.currPostID} view="post"/>
+      'homepage': <HomePageView changeView={this.changeView} view="homepage"/>,
+      'post': <PostView changeView={this.changeView} currPost={this.state.currPostID} view="post" />,
+      'newcard': <NewCardView changeView={this.changeView} view="newcard" userID={this.state.userID} username={this.state.username} />
     };
   }
 

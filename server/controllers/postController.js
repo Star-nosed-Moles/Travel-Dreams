@@ -11,11 +11,11 @@ const geocoder = nodegeocoder(options);
 
 const postController = {};
 
-postController.getPosts = (req, res, next) => {
-    const { userID } = req.body;
-    console.log('in getPosts controller!');
+postController.getUserPosts = (req, res, next) => {
+  const { username } = req.query;
+  console.log('getting all posts by user', username)
     Post
-      .find({ userID })
+      .find({ username })
       .then((data) => {
         console.log('postController.getPosts successfully returned after inserting a doc into the collection.');
         console.log('data in getPosts', data);

@@ -30,14 +30,18 @@ class PostView extends React.Component {
     // TO-DO: add in proper ID variable
     const { postID } = this.props;
     console.log(postID);
-    this.fetchPost('60ab08d230ec251718bcd75e');
+    this.fetchPost('60ab055d83cb962060ba78ce');
   }
 
   render() {
     return (
       <div>
-        {/* <MapContainer /> */}
-        <Post post={this.state.post} />
+        <div>
+          {/* <MapContainer /> */}
+        </div>
+        <div>
+          <Post post={this.state.post} />
+        </div>
       </div>
     );
   };
